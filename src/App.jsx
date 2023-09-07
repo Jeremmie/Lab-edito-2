@@ -23,7 +23,7 @@ function App() {
   const { bgColor } = useControls({
     bgColor: '#6FD2FF',
   })
-  console.log(useScroll);
+
   return (
     <>
       <Leva collapsed />

@@ -55,7 +55,6 @@ export default function Scene() {
 
 
     return (<>
-
         <ambientLight intensity={generalLight} />
         <directionalLight position={[1, 2, 3]} intensity={directionalLight} />
         <group position={[position.x, position.y, 0]} scale={1}>
@@ -70,6 +69,5 @@ export default function Scene() {
             near={0.1}
             far={700}
         />
-
     </>)
 }

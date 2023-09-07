@@ -11,10 +11,10 @@ export default function Terrain() {
 
     return (<>
         <mesh scale={1} castShadow receiveShadow geometry={modelTerrain.nodes.geneve.geometry}>
-            <meshBasicMaterial color={color} />
+            <meshToonMaterial color={color} />
         </mesh>
         <mesh scale={1} castShadow receiveShadow position-y={-0.01} geometry={modelTerrain.nodes.lac.geometry}>
-            <meshBasicMaterial color={colorLac} />
+            <meshToonMaterial color={colorLac} />
         </mesh>
     </>)
 }

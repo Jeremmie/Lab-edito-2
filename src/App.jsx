@@ -34,7 +34,6 @@ function App() {
             <Scene />
           </SheetProvider>
         </ScrollControls>
-        <OrbitControls />
       </Canvas>
     </>
   )

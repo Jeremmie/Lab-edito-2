@@ -7,15 +7,17 @@ import { Canvas } from '@react-three/fiber'
 import { Leva, useControls } from 'leva'
 import { getProject, val } from "@theatre/core";
 import { Gltf, OrbitControls, ScrollControls, useScroll } from "@react-three/drei";
-
-
+import flyThrougState from "./state.json"
 
 import {
-  SheetProvider
+  SheetProvider,
+  PerspectiveCamera,
+  useCurrentSheet,
 } from "@theatre/r3f";
 
 function App() {
-  const sheet = getProject("Fly Through").sheet("Scene");
+  const sheet = getProject("Fly Through", { state: flyThroughState }).sheet("Scene"); s
+
 
 
   const { bgColor } = useControls({
@@ -32,7 +34,6 @@ function App() {
             <Scene />
           </SheetProvider>
         </ScrollControls>
-        <OrbitControls />
       </Canvas>
     </>
   )

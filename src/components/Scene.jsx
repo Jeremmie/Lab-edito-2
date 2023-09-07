@@ -61,13 +61,13 @@ export default function Scene() {
             <Terrain />
             <meshToonMaterial color={color} />
         </group>
-        <PerspectiveCamera
+        {/* <PerspectiveCamera
             theatreKey="Camera"
             makeDefault
             position={[0, 0, 0]}
             fov={90}
             near={0.1}
             far={700}
-        />
+        /> */}
     </>)
 }

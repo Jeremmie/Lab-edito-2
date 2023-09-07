@@ -11,9 +11,7 @@ import { Gltf, OrbitControls, ScrollControls, useScroll } from "@react-three/dre
 
 
 import {
-  SheetProvider,
-  PerspectiveCamera,
-  useCurrentSheet,
+  SheetProvider
 } from "@theatre/r3f";
 
 function App() {

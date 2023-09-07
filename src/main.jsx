@@ -7,6 +7,7 @@ import './index.css'
 
 studio.extend(extension);
 studio.initialize();
+studio.ui.hide()
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

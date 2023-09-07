@@ -6,7 +6,7 @@ import Scene from './components/Scene'
 import { Canvas } from '@react-three/fiber'
 import { Leva, useControls } from 'leva'
 import { getProject, val } from "@theatre/core";
-import { Gltf, ScrollControls, useScroll } from "@react-three/drei";
+import { Gltf, OrbitControls, ScrollControls, useScroll } from "@react-three/drei";
 
 
 
@@ -34,6 +34,7 @@ function App() {
             <Scene />
           </SheetProvider>
         </ScrollControls>
+        <OrbitControls />
       </Canvas>
     </>
   )

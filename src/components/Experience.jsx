@@ -6,14 +6,9 @@ import { getProject, val } from "@theatre/core";
 import { Leva, useControls } from 'leva'
 import Terrain from "./Terrain"
 
-import {
-    SheetProvider,
-    PerspectiveCamera,
-    useCurrentSheet,
-} from "@theatre/r3f";
 
-export default function Scene() {
-    const { position, positionText, color, generalLight, directionalLight } = useControls({
+export default function Experience() {
+    const { position, color, generalLight, directionalLight } = useControls({
         position: {
             value: { x: 0, y: 0 },
             min: - 10,
@@ -21,13 +16,7 @@ export default function Scene() {
             step: 0.01,
             joystick: 'invertY',
         },
-        positionText: {
-            value: { x: 1, y: -0.2, z: 1 },
-            min: - 10,
-            max: 10,
-            step: 0.01,
-            joystick: 'invertY',
-        },
+
         color: '#ff0000',
         generalLight: {
             value: -4.3,
@@ -43,16 +32,6 @@ export default function Scene() {
         }
     })
 
-    const sheet = useCurrentSheet();
-    const scroll = useScroll();
-
-    useFrame(() => {
-        // the length of our sequence
-        const sequenceLength = val(sheet.sequence.pointer.length);
-        // update the "position" of the playhead in the sequence, as a fraction of its whole length
-        sheet.sequence.position = scroll.offset * sequenceLength;
-    });
-
 
     return (<>
         <ambientLight intensity={generalLight} />
@@ -61,13 +40,5 @@ export default function Scene() {
             <Terrain />
             <meshToonMaterial color={color} />
         </group>
-        <PerspectiveCamera
-            theatreKey="Camera"
-            makeDefault
-            position={[0, 0, 0]}
-            fov={90}
-            near={0.1}
-            far={700}
-        />
     </>)
 }

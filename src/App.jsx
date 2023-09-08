@@ -1,13 +1,14 @@
 import { useState } from 'react'
+import Experience from './components/Experience'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './index.css'
-import Scene from './components/Scene'
-import { Canvas } from '@react-three/fiber'
+import { Canvas, useFrame } from '@react-three/fiber'
 import { Leva, useControls } from 'leva'
 import { getProject, val } from "@theatre/core";
 import { Gltf, OrbitControls, ScrollControls, useScroll } from "@react-three/drei";
-import flyThrougState from "./state.json"
+import flyThrougState from "./flystate.json";
+
 
 import {
   SheetProvider,
@@ -15,8 +16,8 @@ import {
   useCurrentSheet,
 } from "@theatre/r3f";
 
-function App() {
-  const sheet = getProject("Fly Through", { state: flyThroughState }).sheet("Scene"); s
+export default function App() {
+  const sheet = getProject("Fly Through", { state: flyThrougState }).sheet("Scene");
 
 
 
@@ -38,5 +39,30 @@ function App() {
     </>
   )
 }
+function Scene() {
+  const sheet = useCurrentSheet();
+  const scroll = useScroll();
 
-export default App
+  // our callback will run on every animation frame
+  useFrame(() => {
+    // the length of our sequence
+    const sequenceLength = val(sheet.sequence.pointer.length);
+    // update the "position" of the playhead in the sequence, as a fraction of its whole length
+    sheet.sequence.position = scroll.offset * sequenceLength;
+  });
+
+
+  return (
+    <>
+      <Experience />
+      <PerspectiveCamera
+        theatreKey="Camera"
+        makeDefault
+        position={[0, 0, 0]}
+        fov={60}
+        near={0.1}
+        far={70}
+      />
+    </>
+  );
+}

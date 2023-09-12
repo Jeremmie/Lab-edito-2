@@ -3,10 +3,9 @@
 @tailwind utilities;
 
 .transitionAll {
-    /* transition: all ease-in-out 500ms; */
+    transition: all ease-in-out 1s;
 }
 
 .transitionPopUp {
     bottom: 0;
-    /* transition: all ease-in-out 500ms; */
 }

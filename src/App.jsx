@@ -59,16 +59,12 @@ function Scene() {
     // update the "position" of the playhead in the sequence, as a fraction of its whole length
     sheet.sequence.position = scroll.offset * sequenceLength;
 
+
+
     const scrollCSS = Math.round((scroll.offset) * 10)
 
-    console.log(scrollCSS);
-
-
-
     if (scrollCSS === 4) {
-      console.log('coucou');
       firstPopUp.classList.toggle('transitionPopUp')
-
     }
 
   });

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Experience from './components/Experience'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
@@ -28,18 +28,14 @@ export default function App() {
 
   return (
     <>
+
       <Leva collapsed />
-      <div id='portGeneve' className='w-full bg-melon h-1/4 fixed z-10 -bottom-full rounded-t-lg p-4
-transitionAll 
-'>
-        <h1>Geneve</h1>
-        <p>blablabla</p>
-      </div>
       <Canvas gl={{ preserveDrawingBuffer: true }} className='h-screen'>
         <color args={[bgColor]} attach="background" />
         <ScrollControls pages={5}>
           <SheetProvider sheet={sheet}>
             <Scene />
+            <Pannel />
           </SheetProvider>
         </ScrollControls>
       </Canvas>
@@ -49,7 +45,6 @@ transitionAll
 function Scene() {
   const sheet = useCurrentSheet();
   const scroll = useScroll();
-  var firstPopUp = document.querySelector('#portGeneve')
 
   // our callback will run on every animation frame
   useFrame(() => {
@@ -58,22 +53,7 @@ function Scene() {
 
     // update the "position" of the playhead in the sequence, as a fraction of its whole length
     sheet.sequence.position = scroll.offset * sequenceLength;
-
-    const scrollCSS = Math.round((scroll.offset) * 10)
-
-    console.log(scrollCSS);
-
-
-
-    if (scrollCSS === 4) {
-      console.log('coucou');
-      firstPopUp.classList.toggle('transitionPopUp')
-
-    }
-
   });
-
-
 
   return (
     <>
@@ -88,4 +68,23 @@ function Scene() {
       />
     </>
   );
+}
+
+function Pannel() {
+  const sheet = useCurrentSheet();
+  const data = useScroll()
+  let scrollYtest = useRef()
+  useState((state, delta) => {
+
+    scrollYtest = Math.round((data.offset) * 10)
+    console.log(scrollYtest);
+
+  })
+
+
+
+
+
+  return (<>
+  </>)
 }

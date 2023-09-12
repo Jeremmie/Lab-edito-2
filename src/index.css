@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.transitionAll {
+    transition: all ease-in-out 1s;
+}
+
+.transitionPopUp {
+    bottom: 0;
+}

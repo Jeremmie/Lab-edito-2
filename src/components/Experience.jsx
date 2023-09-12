@@ -33,6 +33,9 @@ export default function Experience() {
     })
 
 
+
+
+
     return (<>
         <ambientLight intensity={generalLight} />
         <directionalLight position={[1, 2, 3]} intensity={directionalLight} />

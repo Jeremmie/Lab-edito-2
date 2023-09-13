@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .transitionAll {
-    /* transition: all ease-in-out 1s; */
+    transition: all ease-in-out 1s;
 }
 
 .transitionPopUp {

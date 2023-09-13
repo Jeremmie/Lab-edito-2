@@ -78,12 +78,12 @@ function Scene() {
     const scrollCSS = Math.round((scroll.offset) * 10)
     console.log(scrollCSS);
 
-    if (scrollCSS === 4) {
-      popUpContainer.classList.add('transitionPopUp')
+    // if (scrollCSS === 4) {
+    //   popUpContainer.classList.add('transitionPopUp')
 
-    } else {
-      popUpContainer.classList.remove('transitionPopUp')
-    }
+    // } else {
+    //   popUpContainer.classList.remove('transitionPopUp')
+    // }
 
   });
 

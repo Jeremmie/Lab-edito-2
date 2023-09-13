@@ -2,10 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
-.transitionAll {
-    transition: all ease-in-out 1s;
+@font-face {
+    font-family: AlaskaLight;
+    src: url(./assets/fonts/Alaska-Light.woff2);
 }
+
+.AlaskaLight {
+    font-family: AlaskaLight, sans-serif;
+}
+
+.transitionAll {
+    transition: all ease-in-out 500ms;
+}
+
 
 .transitionPopUp {
     bottom: 0;
+}
+
+
+canvas {
+    touch-action: none;
 }

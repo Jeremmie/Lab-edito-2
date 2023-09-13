@@ -62,9 +62,12 @@ function Scene() {
 
 
     const scrollCSS = Math.round((scroll.offset) * 10)
+    console.log(scrollCSS);
 
-    if (scrollCSS === 4) {
-      firstPopUp.classList.toggle('transitionPopUp')
+    if (scrollCSS === 3) {
+      firstPopUp.classList.add('transitionPopUp')
+    } else {
+      firstPopUp.classList.remove('transitionPopUp')
     }
 
   });

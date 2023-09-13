@@ -5,8 +5,8 @@ import { useControls } from 'leva';
 export default function Terrain() {
     const modelTerrain = useGLTF('../src/assets/model/terrain1.glb')
     const { color, colorLac } = useControls({
-        color: '#ff0000',
-        colorLac: '#ff0000',
+        color: '#515151',
+        colorLac: '#767677',
     })
 
     return (<>

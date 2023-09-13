@@ -17,7 +17,7 @@ export default function Experience() {
             joystick: 'invertY',
         },
 
-        color: '#ff0000',
+        color: '#515151',
         generalLight: {
             value: -4.3,
             min: - 10,
@@ -39,6 +39,8 @@ export default function Experience() {
     return (<>
         <ambientLight intensity={generalLight} />
         <directionalLight position={[1, 2, 3]} intensity={directionalLight} />
+        <directionalLight position={[0, 3, 0]} intensity={directionalLight} />
+        <directionalLight position={[1, 3, 0]} intensity={1} />
         <group position={[position.x, position.y, 0]} scale={1}>
             <Terrain />
             <meshToonMaterial color={color} />

@@ -23,7 +23,7 @@ export default function App() {
 
 
   const { bgColor } = useControls({
-    bgColor: '#6FD2FF',
+    bgColor: '#d12711',
   })
 
   return (

@@ -8,6 +8,7 @@ import { Leva, useControls } from 'leva'
 import { getProject, val } from "@theatre/core";
 import { Gltf, OrbitControls, ScrollControls, useScroll } from "@react-three/drei";
 import flyThrougState from "./flystate.json";
+import { Html } from '@react-three/drei'
 
 
 import {
@@ -20,14 +21,18 @@ export default function App() {
   const sheet = getProject("Fly Through", { state: flyThrougState }).sheet("Scene");
 
 
-  const bigPageGP = document.querySelector('#bigPageGP');
   function openPopUp() {
-    bigPageGP.classList.add('transitionPopUp');
-    popUpContainer.classList.remove('transitionPopUp')
+    const bigPageGPtest = document.querySelector('#bigPageGP');
+    bigPageGPtest.style.bottom = '0';
+    bigPageGPtest.style.opacity = '100%';
+    popUpContainer.style.opacity = '0%';
+    console.log(bigPageGPtest);
   };
   function closePopUp() {
-    bigPageGP.classList.remove('transitionPopUp');
-    popUpContainer.classList.add('transitionPopUp')
+    const bigPageGPtest = document.querySelector('#bigPageGP');
+    bigPageGPtest.style.bottom = '-130%';
+    bigPageGPtest.style.opacity = '0%';
+    popUpContainer.style.opacity = '100%';
   };
 
   const { bgColor } = useControls({
@@ -36,9 +41,9 @@ export default function App() {
 
   return (
     <>
-      <Leva hidden collapsed />
+      <Leva />
       <div id='popUpContainer' className='flex flex-col fixed -bottom-full mb-5 z-10 w-screen h-fit items-center justify-center transitionAll'>
-        <div id='popUpBtn' className='justify-center items-center shadow-lg flex flex-row w-5/12 py-3 rounded-full bg-slate-800 text-white h-1/6 mb-5'>
+        <div id='popUpBtn' className='justify-center items-center shadow-lg flex flex-row w-fit px-3 py-2 text-xs rounded-full bg-slate-800 text-white h-1/6 mb-5'>
           <p onClick={openPopUp} className='ml-2'>Lire plus</p>
           <svg className='h-10 scale-[65%] -mb-[5px]' version="1.1" viewBox="0 0 700 700" xmlns="http://www.w3.org/2000/svg">
             <g fillRule="evenodd">
@@ -53,7 +58,7 @@ export default function App() {
           <p className='mt-3'>blablabla</p>
         </div>
       </div>
-      <div id='bigPageGP' className='h-screen -bottom-full fixed bg-gray-500/90 z-50 w-screen AlaskaLight p-4 text-xl transitionAll'>
+      <div id='bigPageGP' className='h-screen -bottom-[130%] fixed bg-gray-500/90 z-50 w-screen AlaskaLight p-4 text-xl transitionAll'>
         <svg onClick={closePopUp} className='block ml-auto' xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 384 512">{/* <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --> */}
           <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z" /></svg>
         <h1>Genève Paquis</h1>
@@ -108,6 +113,7 @@ function Scene() {
   return (
     <>
       <Experience />
+
       <PerspectiveCamera
         theatreKey="Camera"
         makeDefault
@@ -116,6 +122,24 @@ function Scene() {
         near={0.1}
         far={70}
       />
+      {/* <Html position={[0.50, -300, -0.79]} >
+        <p className="bg-black text-white p-3 rounded-full px-5">1</p>
+      </Html>
+      <Html position={[0.19, 0, -0.38]}  >
+        <p className="bg-black text-white p-3 rounded-full px-5">2</p>
+      </Html>
+      <Html position={[0.39, 0, 0.14]}  >
+        <p className="bg-black text-white p-3 rounded-full px-5">3</p>
+      </Html>
+      <Html position={[2.48, 0, -0.69]}  >
+        <p className="bg-black text-white p-3 rounded-full px-5">4</p>
+      </Html>
+      <Html position={[-0.01, 0, -0.01]}  >
+        <p className="bg-black text-white p-3 rounded-full px-5">5</p>
+      </Html>
+      <Html position={[-1.68, 0, 0.27]}  >
+        <p className="bg-black text-white p-3 rounded-full px-5">5</p>
+      </Html> */}
     </>
   );
 }

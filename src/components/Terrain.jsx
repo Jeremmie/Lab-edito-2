@@ -1,9 +1,9 @@
-import { useGLTF } from '@react-three/drei'
+import { Html, useGLTF } from '@react-three/drei'
 import { MeshToonMaterial } from 'three';
 import { useControls } from 'leva';
 
 export default function Terrain() {
-    const modelTerrain = useGLTF('../src/assets/model/terrain1.glb')
+    const modelTerrain = useGLTF('/terrain1.glb')
     const { color, colorLac } = useControls({
         color: '#515151',
         colorLac: '#767677',

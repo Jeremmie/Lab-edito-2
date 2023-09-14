@@ -10,7 +10,7 @@ import Terrain from "./Terrain"
 export default function Experience() {
     const { position, color, generalLight, directionalLight } = useControls({
         position: {
-            value: { x: 0, y: 0 },
+            value: { x: 0, z: 0 },
             min: - 10,
             max: 10,
             step: 0.01,
@@ -41,7 +41,9 @@ export default function Experience() {
         <directionalLight position={[1, 2, 3]} intensity={directionalLight} />
         <directionalLight position={[0, 3, 0]} intensity={directionalLight} />
         <directionalLight position={[1, 3, 0]} intensity={1} />
-        <group position={[position.x, position.y, 0]} scale={1}>
+
+
+        <group position={[0, 0, 0]} scale={1}>
             <Terrain />
             <meshToonMaterial color={color} />
         </group>

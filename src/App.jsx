@@ -41,7 +41,7 @@ export default function App() {
 
   return (
     <>
-      <Leva />
+      <Leva hidden />
       <div id='popUpContainer' className='flex flex-col fixed -bottom-full mb-5 z-10 w-screen h-fit items-center justify-center transitionAll'>
         <div id='popUpBtn' className='justify-center items-center shadow-lg flex flex-row w-fit px-3 py-2 text-xs rounded-full bg-slate-800 text-white h-1/6 mb-5'>
           <p onClick={openPopUp} className='ml-2'>Lire plus</p>
@@ -55,14 +55,17 @@ export default function App() {
         <div id='popUpText' className='AlaskaLight shadow-lg w-[90%] bg-slate-800 text-white h-1/6 rounded-xl p-4'>
           <h1 className='text-4xl'>Genève Pâquis</h1>
           <hr />
-          <p className='mt-3'>blablabla</p>
+          <p className='mt-3'>La tradition face à la modernité</p>
         </div>
       </div>
-      <div id='bigPageGP' className='h-screen -bottom-[130%] fixed bg-gray-500/90 z-50 w-screen AlaskaLight p-4 text-xl transitionAll'>
-        <svg onClick={closePopUp} className='block ml-auto' xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 384 512">{/* <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --> */}
+      <div id='bigPageGP' className='h-screen -bottom-[130%] fixed bg-slate-800/90 z-50 w-screen AlaskaLight p-4 text-xl text-white transitionAll'>
+        <svg onClick={closePopUp} className='fill-white block ml-auto' xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 384 512">{/* <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --> */}
           <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z" /></svg>
         <h1>Genève Paquis</h1>
-        <hr />
+        <hr className='mt-2 mb-3' />
+        <p>La compagnie genevoise des bateaux à vapeurs réunis n’a pas pas encore de bateaux fait en métal.</p> <p className='mt-3'>Ces derniers, en bois, ne peuvent pas rivaliser contre les nouveaux bateaux qui arrivent sur le Léman; ceux en fer des frère Knechtenhofer.
+          <img className='mt-5 rounded-lg w-fit h-auto bg-white' src="https://www.cgn.ch/media/eav/generic/thumb3_small_2.jpg" alt="" />
+        </p>
       </div >
       <Canvas gl={{ preserveDrawingBuffer: true }} className='h-screen'>
         <color args={[bgColor]} attach="background" />
@@ -98,7 +101,7 @@ function Scene() {
     const scrollCSS = Math.round((scroll.offset) * 10)
     console.log(scrollCSS);
 
-    if (scrollCSS === 5) {
+    if (scrollCSS === (4)) {
       popUpContainer.classList.add('transitionPopUp')
 
     } else {
@@ -122,24 +125,7 @@ function Scene() {
         near={0.1}
         far={70}
       />
-      {/* <Html position={[0.50, -300, -0.79]} >
-        <p className="bg-black text-white p-3 rounded-full px-5">1</p>
-      </Html>
-      <Html position={[0.19, 0, -0.38]}  >
-        <p className="bg-black text-white p-3 rounded-full px-5">2</p>
-      </Html>
-      <Html position={[0.39, 0, 0.14]}  >
-        <p className="bg-black text-white p-3 rounded-full px-5">3</p>
-      </Html>
-      <Html position={[2.48, 0, -0.69]}  >
-        <p className="bg-black text-white p-3 rounded-full px-5">4</p>
-      </Html>
-      <Html position={[-0.01, 0, -0.01]}  >
-        <p className="bg-black text-white p-3 rounded-full px-5">5</p>
-      </Html>
-      <Html position={[-1.68, 0, 0.27]}  >
-        <p className="bg-black text-white p-3 rounded-full px-5">5</p>
-      </Html> */}
+
     </>
   );
 }

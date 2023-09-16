@@ -20,6 +20,20 @@ import {
 export default function App() {
   const sheet = getProject("Fly Through", { state: flyThrougState }).sheet("Scene");
 
+  const enterFullScreen = () => {
+    document.documentElement.requestFullscreen().catch((e)=>{
+        console.log(e);
+    });
+}
+const takeDownBox = () => {
+    FullScreenBox.style.bottom = '-100%';
+    console.log('gone');
+}
+const playAll = () => {
+  takeDownBox();
+  enterFullScreen();
+}
+
 
   function openPopUp() {
     const bigPageGPtest = document.querySelector('#bigPageGP');
@@ -42,6 +56,21 @@ export default function App() {
   return (
     <>
       <Leva hidden />
+
+      <div id="FullScreenBox" className="h-screen w-screen bg-slate-600/90 fixed -bottom-0 z-10 flex justify-center items-center transitionAll">
+    <div className="h-[30vh] w-[90vw] bg-slate-800 rounded-lg flex justify-center flex-col items-center text-white fixed z-20 p-5">
+    <div className="mb-7">
+        <h1>L'Epopée du Léman</h1>
+        <h3> À travers les croisières de la CGN</h3>
+    </div>
+    <div className="bg-emerald-900 py-4 flex flex-col justify-center items-center p-4 rounded-xl">
+    <p>Pour avoir la meilleure épérience, activé le mode pleine écran:</p>
+    <p onClick={playAll} className="bg-white text-slate-800 px-3 py-2 w-fit rounded-full shadow-lg mt-3 font-bold">fullscreen</p>
+    </div>
+    </div>
+    </div>
+
+
       <div id='popUpContainer' className='flex flex-col fixed -bottom-full mb-5 z-10 w-screen h-fit items-center justify-center transitionAll'>
         <div id='popUpBtn' className='justify-center items-center shadow-lg flex flex-row w-fit px-3 py-2 text-xs rounded-full bg-slate-800 text-white h-1/6 mb-5'>
           <p onClick={openPopUp} className='ml-2'>Lire plus</p>
@@ -81,12 +110,15 @@ export default function App() {
 function Scene() {
   const sheet = useCurrentSheet();
   const scroll = useScroll();
+  const FullScreenBox = document.querySelector('#FullScreenBox')
 
 
 
   var popUpContainer = document.querySelector('#popUpContainer')
   var popUpText = document.querySelector('#popUpText')
   var popUpBtn = document.querySelector('#popUpBtn')
+
+
 
   // our callback will run on every animation frame
   useFrame(() => {
@@ -107,6 +139,9 @@ function Scene() {
     } else {
       popUpContainer.classList.remove('transitionPopUp')
     }
+    
+
+
 
   });
 

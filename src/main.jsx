@@ -13,7 +13,6 @@ studio.ui.hide()
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Suspense fallback={null}>
-      {/* <RequestFullScreen /> */}
       <App />
     </Suspense>
   </React.StrictMode>
